@@ -1,2 +1,2 @@
 # DesafioUppersoft
-Create a REST API to CRUD user using PHP, Laravel, Composer and Mysql.
+Create a REST API to do user CRUD using PHP, Laravel, Composer and Mysql.
