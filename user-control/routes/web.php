@@ -25,4 +25,7 @@ Route::group(['middleware' => 'web'], function(){
 Route::get('/users', [App\Http\Controllers\UsersController::class, 'index'])->middleware('auth');
 Route::get('/users/new', [App\Http\Controllers\UsersController::class, 'new'])->middleware('auth');
 Route::post('/users/add', [App\Http\Controllers\UsersController::class, 'add'])->middleware('auth');
+Route::get('/users/{id}/edit', [App\Http\Controllers\UsersController::class, 'edit'])->middleware('auth');
+Route::post('/users/update/{id}', [App\Http\Controllers\UsersController::class, 'update'])->middleware('auth');
+
 
