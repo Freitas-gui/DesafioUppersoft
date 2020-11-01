@@ -15,10 +15,38 @@
                     @endif
 
                     <h1>List of client users</h1>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Editar</th>
+                                <th scope="col">Deletar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                     @foreach( $clientUsers as $u )
-                        <p> {{ $u->name }} </p>
-                        <p> {{ $u->email }} </p>
+
+                            <tr>
+                                <th scope="row">{{ $u->id }}</th>
+                                <td>{{ $u->name }}</td>
+                                <td>{{ $u->email }}</td>
+                                <td>
+                                    <a href="users/{{ $u->id }}/edit" class="btn btn-info">Edit</a>
+                                </td>
+                                <td>
+                                <form action="usuarios/delete/{{ $u->id }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger">Deletar</button>
+                                </form>
+                                </td>
+                            </tr>
+
                     @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
