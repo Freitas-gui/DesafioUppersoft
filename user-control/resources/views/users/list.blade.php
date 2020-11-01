@@ -19,10 +19,10 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Nome</th>
+                                <th scope="col">Name</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Editar</th>
-                                <th scope="col">Deletar</th>
+                                <th scope="col">Edit</th>
+                                <th scope="col">Delete</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -36,7 +36,7 @@
                                     <a href="users/{{ $u->id }}/edit" class="btn btn-info">Edit</a>
                                 </td>
                                 <td>
-                                <form action="usuarios/delete/{{ $u->id }}" method="post">
+                                <form action="users/delete/{{ $u->id }}" method="post">
                                     @csrf
                                     @method('delete')
                                     <button class="btn btn-danger">Deletar</button>

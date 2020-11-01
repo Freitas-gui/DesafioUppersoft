@@ -28,12 +28,22 @@ class UsersController extends Controller
 
     public function edit( $id ){
         $clientUser = Clientuser::findOrFail( $id );
+
         return view('users.form', ['clientUser' => $clientUser]);
     }
 
     public function update( $id, Request $request ){
         $clientUser = Clientuser::findOrFail( $id );
         $clientUser->update( $request->all() );
+        
         return Redirect::to('/users');
+    }
+
+    public function delete ( $id ){
+        $clientUser = Clientuser::findOrFail( $id );
+        $clientUser->delete();
+
+        return Redirect::to('/users');
+
     }
 }

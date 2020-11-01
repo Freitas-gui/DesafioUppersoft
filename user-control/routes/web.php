@@ -27,5 +27,7 @@ Route::get('/users/new', [App\Http\Controllers\UsersController::class, 'new'])->
 Route::post('/users/add', [App\Http\Controllers\UsersController::class, 'add'])->middleware('auth');
 Route::get('/users/{id}/edit', [App\Http\Controllers\UsersController::class, 'edit'])->middleware('auth');
 Route::post('/users/update/{id}', [App\Http\Controllers\UsersController::class, 'update'])->middleware('auth');
+Route::delete('/users/delete/{id}', [App\Http\Controllers\UsersController::class, 'delete'])->middleware('auth');
+
 
 
