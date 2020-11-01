@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Uppersoft</div>
+                <div class="card-header">Client Users Control</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <h1>Welcome (:</h1>
+                    <h1>Welcome, {{ Auth::user()->name }}</h1>
                     <a href="{{ url('users') }}">List of users</a>
                 </div>
             </div>
