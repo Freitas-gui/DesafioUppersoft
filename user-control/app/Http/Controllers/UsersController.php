@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Redirect;
 use App\models\Clientuser;
+use\App\Http\Requests\ValidateClientUserRequest;
 
 
 class UsersController extends Controller
@@ -19,8 +20,8 @@ class UsersController extends Controller
         return view('users.form');
     }
 
-    public function add( Request $request ){
-        $clientUser = new Clientuser;
+    public function add( ValidateClientUserRequest $request ){
+        $clientUser = new Clientuser;        
         $clientUser= $clientUser->create( $request->all() );
         
         return Redirect::to('/users');
@@ -32,7 +33,7 @@ class UsersController extends Controller
         return view('users.form', ['clientUser' => $clientUser]);
     }
 
-    public function update( $id, Request $request ){
+    public function update( $id, ValidateClientUserRequest $request ){
         $clientUser = Clientuser::findOrFail( $id );
         $clientUser->update( $request->all() );
         
