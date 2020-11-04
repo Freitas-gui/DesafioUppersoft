@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\models\Clientuser;
 use App\Rules\FullName;
 
-class ValidateClientUserRequest extends Controller
+class ValidateClientUserController extends Controller
     /* I made the validations in the controller because the lumen doesn't have support for FormRequest.
         By default, the Lumen base controller class uses a ValidatesRequests that contains the validate method.
     */

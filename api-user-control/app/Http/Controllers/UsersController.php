@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\models\Clientuser;
-use App\Http\Controllers\ValidateClientUserRequest;
+use App\Http\Controllers\ValidateClientUserController;
 
 
-class UsersController extends ValidateClientUserRequest
+class UsersController extends ValidateClientUserController
 {
     public function index(){
         return Clientuser::all();
@@ -22,7 +22,7 @@ class UsersController extends ValidateClientUserRequest
     public function show(int $id){
         $clientuser = Clientuser::find($id);
         if(is_null($clientuser)){
-            return response()->json('', 204);
+            return response()->json('', 204); # 204 No content
         }
         return response()->json($clientuser);
     }
@@ -43,6 +43,6 @@ class UsersController extends ValidateClientUserRequest
         if($amountRemoved === 0){
             return response()->json(['error' => 'resource not found'], 404);
         }
-        return response()->json('', 204);
+        return response()->json('', 204); # 204 No content
     }
 }
