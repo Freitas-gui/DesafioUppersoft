@@ -4,15 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\models\Clientuser;
+use App\Http\Controllers\ValidateClientUserRequest;
 
 
-class UsersController extends Controller
+class UsersController extends ValidateClientUserRequest
 {
     public function index(){
         return Clientuser::all();
     }
 
     public function add(Request $request){
+        $this->validationAdd($request);
+
         return response()->json(Clientuser::create($request->all()),201);
     }
 
@@ -25,6 +28,8 @@ class UsersController extends Controller
     }
 
     public function update(int $id, Request $request){
+        $this->validationUpdate($request, $id);
+
         $clientuser = Clientuser::find($id);
         if (is_null ($clientuser)){
             return response()->json(['error' => 'resource not found'], 404);
