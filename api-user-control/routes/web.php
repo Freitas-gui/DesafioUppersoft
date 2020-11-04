@@ -17,7 +17,10 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-
-$router->get('/users', 'UsersController@index');
-
-#$router->group(['prefix'])
+$router->group(['prefix' => 'api/clientusers'], function () use ($router){
+    $router->get('', 'UsersController@index');
+    $router->post('', 'UsersController@add');
+    $router->get('{id}', 'UsersController@show');
+    $router->put('{id}', 'UsersController@update');
+    $router->delete('{id}', 'UsersController@destroy');
+});
